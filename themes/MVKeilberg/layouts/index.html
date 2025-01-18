@@ -1,6 +1,6 @@
 {{ define "content" }}
 
-<div class="container " id="about">
+<div class="container" id="about">
     <div class="row text-center">
         <div class="col-lg-10 mx-auto">
             <h1 class="display-3 fw-bold text-primary">Willkommen beim Musikverein Keilberg</h1>
@@ -9,7 +9,18 @@
     </div>
 
     <div class="row mt-2 align-items-center">
-        <div class="col-md-6">
+        <!-- Image: Moves above text on small screens -->
+        <div class="col-md-6 text-center order-1 order-md-2">
+            {{- partial "responsive_image.html" (dict
+            "image" "/images/index/Gruppenfoto.png"
+            "title" "Musikverein Keilberg Orchester"
+            "class" "rounded img-fluid shadow-sm"
+            "widths" (dict "md" 50)
+            ) -}}
+        </div>
+
+        <!-- "Über uns" text: Moves below image on small screens -->
+        <div class="col-md-6 order-2 order-md-1">
             <h2 class="fw-semibold text-secondary">Über uns</h2>
             <p class="text-muted">
                 Der Musikverein Keilberg ist eine engagierte Gemeinschaft von Musikerinnen und Musikern, die sich der
@@ -19,16 +30,8 @@
             </p>
             <a href="/kontakt" class="btn btn-outline-primary btn-lg mt-3">Mehr erfahren</a>
         </div>
-        <div class="col-md-6 text-center">
-            {{- partial "responsive_image.html" (dict
-            "image" "/images/index/Gruppenfoto.png"
-            "title" "Musikverein Keilberg Orchester"
-            "class" "rounded img-fluid shadow-sm"
-            "widths" (dict "md" 50)
-            ) -}}
-
-        </div>
     </div>
+
 
     <div class="row mt-2 g-4">
         <div class="col-md-4">
