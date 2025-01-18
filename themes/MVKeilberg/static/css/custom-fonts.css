@@ -1,0 +1,141 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: "Smooch Sans", serif;
+  font-weight: 500;
+  color: #002f73;
+  /* Deep Blue from logo */
+}
+
+h1,
+.h1,
+.display-1 {
+  font-size: 3.5rem;
+}
+
+h2,
+.h2,
+.display-2 {
+  font-size: 3rem;
+}
+
+h3,
+.h3,
+.display-3 {
+  font-size: 2.5rem;
+}
+
+h4,
+.h4,
+.display-4 {
+  font-size: 2rem;
+}
+
+h5,
+.h5,
+.display-5 {
+  font-size: 1.75rem;
+}
+
+h6,
+.h6,
+.display-6 {
+  font-size: 1.5rem;
+}
+
+html,
+body,
+.tooltip,
+.popover {
+  font-family: "Smooch Sans", sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+  /* Increased base font size */
+  color: #333;
+  /* Dark Gray for readability */
+}
+
+code,
+kbd,
+pre,
+samp,
+.text-monospace {
+  font-family: "Noto Mono", monospace;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+:root {
+  --bs-primary: #002f73;
+  /* Deep Blue from logo */
+  --bs-primary-rgb: 0, 47, 115;
+}
+
+/* Global button styling */
+.btn,
+.btn-primary,
+.btn-outline-primary {
+  font-size: 1.2rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+/* Primary Button (Solid) */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #001c47;
+  border-color: #001c47;
+  color: #fff;
+}
+
+/* Outline Button */
+.btn-outline-primary {
+  border-color: #2058af;
+  color: #2058af;
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #2058af;
+  border-color: #2058af;
+}
+
+/* Links */
+a {
+  color: var(--bs-primary);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #001c47;
+}

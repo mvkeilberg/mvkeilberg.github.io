@@ -1,0 +1,12 @@
+<div class="card">
+    {{ if fileExists (printf "static%s" .Params.Image) }}
+    <img class="card-img-top" load="lazy" src="{{ .Params.Image | relURL}}"
+        alt="{{if .Params.Image_Title}} {{- .Params.Image_Title -}} {{else}} {{- .Params.Image -}} {{end}}">
+    {{ end }}
+    <div class="card-body">
+        <h5 class="card-title">{{ .Title }}</h5>
+       <div class="card-text text-break blocksatz">
+            {{ .Content }}
+       </div>
+    </div>
+</div>

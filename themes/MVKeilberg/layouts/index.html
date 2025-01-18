@@ -1,0 +1,67 @@
+{{ define "content" }}
+{{ $data := index site.Data site.Language.Lang }}
+{{ with $data.data.abbildungen }}
+
+<div class="container " id="about">
+    <div class="row text-center">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="display-3 fw-bold text-primary">Willkommen beim Musikverein Keilberg</h1>
+            <p class="lead text-muted">Tradition, Leidenschaft und Musik – gemeinsam erleben!</p>
+        </div>
+    </div>
+
+    <div class="row mt-2 align-items-center">
+        <div class="col-md-6">
+            <h2 class="fw-semibold text-secondary">Über uns</h2>
+            <p class="text-muted">
+                Der Musikverein Keilberg ist eine engagierte Gemeinschaft von Musikerinnen und Musikern, die sich der
+                Förderung und Erhaltung der Blasmusik widmet.
+                Wir organisieren regelmäßig Konzerte, Veranstaltungen und bieten eine hochwertige musikalische
+                Ausbildung für alle Altersgruppen.
+            </p>
+            <a href="/kontakt" class="btn btn-outline-primary btn-lg mt-3">Mehr erfahren</a>
+        </div>
+        <div class="col-md-6 text-center">
+            {{- partial "responsive_image.html" (dict
+            "image" "/images/index/Gruppenfoto.png"
+            "title" "Musikverein Keilberg Orchester"
+            "class" "rounded img-fluid shadow-sm"
+            "widths" (dict "md" 50)
+            ) -}}
+
+        </div>
+    </div>
+
+    <div class="row mt-2 g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="fw-semibold text-primary">Aktuelles</h3>
+                    <p class="text-muted">Erfahren Sie mehr über die neuesten Ereignisse und Highlights des Vereins.</p>
+                    <a href="/aktuelles" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="fw-semibold text-primary">Veranstaltungen</h3>
+                    <p class="text-muted">Kommen Sie vorbei und erleben Sie unsere musikalischen Highlights live.</p>
+                    <a href="/veranstaltungen" class="btn btn-primary">Termine ansehen</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="fw-semibold text-primary">Mitglied werden</h3>
+                    <p class="text-muted">Lust auf Musik? Werden Sie Teil unserer musikalischen Familie!</p>
+                    <a href="/kontakt" class="btn btn-primary">Jetzt beitreten</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ end }}
+{{ end }}

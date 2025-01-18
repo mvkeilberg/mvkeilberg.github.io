@@ -1,0 +1,51 @@
+{{- $data := index site.Data site.Language.Lang -}}
+
+{{- with $data.gallery.gallery -}}
+{{- $index := 0 -}}
+
+<!-- Carousel wrapper -->
+<div id="introCarousel" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        {{- range .items -}}
+        {{ if and (resources.Match (printf "images/gallery/%s" .horizontal)) (resources.Match (printf
+        "images/gallery/%s" .vertikal)) }}
+        <li data-bs-target="#introCarousel" data-bs-slide-to="{{ $index }}" {{- if eq $index 0 }} class="active" {{-
+            end -}}></li>
+        {{- $index = add $index 1 -}}
+        {{- end -}}
+        {{- end -}}
+    </ol>
+
+    <!-- Inner -->
+    <div class="carousel-inner sr-fullpage-carousel-inner">
+        {{- $index = 0 -}}
+        {{- range .items -}}
+        {{- $horizontal_image := printf "images/gallery/%s" .horizontal -}}
+        {{- $vertical_image := printf "images/gallery/%s" .vertikal -}}
+        {{ if and (resources.Match $horizontal_image) (resources.Match $vertical_image) }}
+        <div class="carousel-item sr-fullpage-carousel-item {{ if eq $index 0}} active {{end}}">
+            {{ partial "responsive_picture.html" (dict "horizontal_image" $horizontal_image "vertical_image"
+            $vertical_image "title" .title "class" "sr-fullpage-gallery-image") }}
+            <div class="carousel-caption pb-5">
+                <h1 class="mx-auto text-uppercase">Musikverein 1923 Sailauf e.V.</h1>
+                <h2 class="mx-auto mt-2">Blasmusik aus dem Vorspessart</h2>
+            </div>
+        </div>
+        {{- $index = add $index 1 -}}
+        {{- end -}}
+        {{- end -}}
+    </div>
+
+    <!-- Controls -->
+    <a class="carousel-control-prev" href="#introCarousel" role="button" data-bs-slide="prev">
+        <i class="fas fa-arrow-left"></i>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#introCarousel" role="button" data-bs-slide="next">
+        <i class="fas fa-arrow-right"></i>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!-- Carousel wrapper -->
+{{ end }}
