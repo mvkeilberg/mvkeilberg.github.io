@@ -170,3 +170,29 @@ a:hover {
   background-color: #2058af;
   border-color: #2058af;
 }
+
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  background-color: #fff;
+}
+
+.card-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--bs-primary);
+  color: #fff;
+}
