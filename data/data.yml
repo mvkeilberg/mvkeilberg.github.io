@@ -1,34 +1,19 @@
 contact:
   title : "Musikverein Keilberg e.V."
   address_1 : "Hauptstraße 32-34"
-  address_2 : ", 63856 Bessenbach"
+  address_2 : "63856 Bessenbach"
   phone : ""
-  email : "info [at] mvkeilberg.de"
+  email : "info@mvkeilberg.de"
   homepage : "https://mvkeilberg.de"
 
 vorstand:
-  ersterVorstand: "Anette Mieke"
-  ersterVorstandKontakt: "Steinbachweg 17  \n 63877 Sailauf"
-  ersterVorstandMobil: "+49 151 2227 8206"
-  zweiterVorstand: "Sabrina Weigelt"
-  zweiterVorstandMobil: "+49 163 2908 811"
-  zweiterVorstandKontakt: "Mühlhof 6  \n 63877 Sailauf"
+  - title: "Erster Vorstand"
+    name: "Jochen Haun"
+    kontakt: "Steinbachweg 17  \n 63877 Sailauf"
+    mobil: "+49 151 2227 8206"
 
-  jugendleitung: "Vanessa Hartmann"
-  jugendleitungMobil: "+49 176 9433 6069"
-  jugendleitungEmail: "ausbildung [at] mv1923sailauf.de"
+  - title: "Zweiter Vorstand"
+    name: "Günter Haun"
+    kontakt: "Mühlhof 6  \n 63877 Sailauf"
+    mobil: "+49 163 2908 811"
 
-  pressewart : "Roger Schmitt"
-  pressewartMobil : "+49 173 9601 952"
-  pressewartEmail : "pressewart [at] mv1923sailauf.de"
-
-  dirigent : "Ingo Krenz"
-
-ausbilder:
-  schlagzeug : "Matthias Geis"
-  blechblasinstrumente : "Ingo Krenz"
-  kornett: "Veit Weigelt"
-  querflöte : "Sabrina Weigelt"
-  saxofon: "Christoph Heeg"
-  klavier : "Vita Jonele-Fleckenstein"
-  tuba : "Felix Klössner"
