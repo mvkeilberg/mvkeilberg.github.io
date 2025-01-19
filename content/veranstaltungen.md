@@ -1,4 +1,0 @@
----
-title: "Veranstaltungen"
-layout: veranstaltungen 
----
