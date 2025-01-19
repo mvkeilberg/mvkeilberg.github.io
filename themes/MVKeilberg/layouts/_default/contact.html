@@ -37,6 +37,18 @@
                 {{ end }}
             </div>
             {{ end }}
+            <!-- Membership Section -->
+            {{ with .Params.mitgliedschaft }}
+            <div class="mt-5">
+                <h3 class="fw-semibold text-primary">{{ .title }}</h3>
+                <p class="text-muted">{{ .description }}</p>
+                <p class="text-muted">{{ .instructions }}</p>
+                <a href="{{ .form_url }}" class="btn btn-primary" download>
+                    <i class="bi bi-file-earmark-arrow-down"></i> {{ .btn_text }}
+                </a>
+            </div>
+            {{ end }}
+
         </div>
 
         <div class="col-lg-6 text-center pt-4 pt-lg-0">
