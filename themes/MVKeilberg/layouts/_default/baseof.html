@@ -22,7 +22,13 @@
 
 
 
-  <title>{{ if .Title }} {{ .Title }} {{ else }} {{ site.Params.title }} {{end}}</title>
+  <title>
+    {{ if and .Title (ne .Title $.Site.Params.title) }}
+    {{ .Title }} · {{ $.Site.Params.title }}
+    {{ else }}
+    {{ $.Site.Params.title }}
+    {{ end }}
+  </title>
   {{ if .Title }}
   <meta name="description" content="{{ .Title }}">
   {{ end }}

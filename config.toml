@@ -49,7 +49,7 @@ weight = 11
 [params]
 logo = "images/wappen.png"
 author = "Paul Gerhart"
-title = "Musikverein Keilberg"
+title = "Musikverein Keilberg e.V."
 ustid = ""
 
 ################################ German Language ########################
@@ -57,4 +57,4 @@ ustid = ""
 languageName = "De"
 languageCode = "de-de"
 weight = 2
-copyright = "Copyright &copy; 2025 Musikverein Keilberg"
+copyright = "Copyright &copy; 2025 Musikverein Keilberg e.V."
