@@ -40,12 +40,12 @@
             {{ end }}
         </div>
 
-        <div class="col-6 text-center">
+        <div class="col-lg-6 text-center pt-4 pt-lg-0">
             {{- partial "responsive_image.html" (dict
             "image" .Params.image
             "title" .Params.image_title
             "class" .Params.image_class
-            "widths" (dict "md" 50)
+            "widths" (dict "lg" 50)
             ) -}}
         </div>
     </div>
