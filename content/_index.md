@@ -1,5 +1,6 @@
 ---
-title: "Willkommen beim Musikverein Keilberg"
+title: "Musikverein Keilberg e.V."
+caption: "Willkommen beim Musikverein Keilberg e.V."
 description: "Tradition, Leidenschaft und Musik – gemeinsam erleben!"
 
 image: "/images/index/Gruppenfoto.png"
