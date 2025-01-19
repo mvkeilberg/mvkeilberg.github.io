@@ -1,6 +1,7 @@
 {{ define "content" }}
-{{ $data := index site.Data.data }}
-{{ with $data }}
+{{ $data := .Site.GetPage "page" "kontakt" }}
+
+{{ with $data.Params }}
 <div class="container pt-3 pb-4">
     <div class="row">
         <div class="col-lg-12">
@@ -10,8 +11,8 @@
                 unserer Internetseiten informieren.</p>
 
             <h3> Verantwortlicher </h3>
-            <p> Verantwortlicher für diese Internetseiten ist der {{ .contact.title }}, {{.contact.address_1}}
-                {{.contact.address_2}} , vertreten durch den Vorstand.
+            <p> Verantwortlicher für diese Internetseiten ist der {{ $.Site.Params.title }}, {{.address_1}},
+                {{.address_2}} , vertreten durch den Vorstand.
                 Weitere Angaben zu unserem Verein können Sie unserem Impressum entnehmen.
 
                 Unser Verein hat keinen Datenschutzbeauftragten bestellt, da wir die Voraussetzungen nach

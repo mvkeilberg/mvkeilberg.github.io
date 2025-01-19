@@ -1,8 +1,7 @@
 ---
 date: 2022-04-13T13:37:45+02:00
 title: "Sonstige Veranstaltungen"
-draft: false
-layout: Veranstaltungen
+layout: veranstaltungen
 resources:
     images:
     - title: Image

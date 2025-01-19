@@ -2,7 +2,7 @@
 date: 2023-05-21T09:44:57+02:00
 title: "Festbesuche"
 draft: false
-layout: Veranstaltungen
+layout: veranstaltungen
 resources:
     images:
     - title: "Vatertag 2023"
