@@ -6,8 +6,6 @@ resources:
     images:
     - title: Feuer
       src: "/images/veranstaltungen/Kartoffelfeuer.jpg"
-    - title: Feuer2
-      src: "/images/veranstaltungen/Kartoffelfeuer.jpg"
 ---
 
 Mit unserem Kartoffelbraten laden wir jedes Jahr aufs Neue alle Bürger der nahegelegenen Dörfer und alle Fans des Musikvereins zu unserer Festlichkeit ein.  
