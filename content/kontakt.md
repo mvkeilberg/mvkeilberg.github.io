@@ -20,11 +20,12 @@ mitgliedschaft:
 
 vorstand:
   - title: "Erster Vorstand"
-    name: "Jochen Haun"
-    kontakt: "Steinbachweg 17  \n 63856 Bessenbach"
-    mobil: "+49 171 1241 212"
-  - title: "Zweiter Vorstand"
     name: "Günter Haun"
     kontakt: "Im Wiesengrund 16  \n 63856 Bessenbach"
     mobil: "+49 176 4314 4286"
+    email: "vorstand [at] mvkeilberg.de"
+  - title: "Zweiter Vorstand"
+    name: "Jochen Haun"
+    kontakt: "Steinbachweg 17  \n 63856 Bessenbach"
+    mobil: "+49 171 1241 212"
 ---

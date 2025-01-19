@@ -33,6 +33,13 @@
                     {{ if .mobil }}
                     <small class="d-block text-muted"><strong>Mobil:</strong> {{ .mobil }}</small>
                     {{ end }}
+                    {{ if .email }}
+                    <small class="d-block text-muted"><strong>Email:</strong>
+                        <a href="mailto:{{ .email | replaceRE " \\[at\\]" "@" }}" class="text-primary">
+                            {{ .email | replaceRE "\\[at\\]" "@" }}
+                        </a>
+                    </small>
+                    {{ end }}
                 </div>
                 {{ end }}
             </div>
