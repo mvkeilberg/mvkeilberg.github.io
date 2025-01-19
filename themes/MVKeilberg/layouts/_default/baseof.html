@@ -101,7 +101,7 @@
         {{ range .Site.Menus.main.ByWeight }}
         {{ if eq .Weight 11 }}
         <li class="nav-item ">
-          <a class='nav-link {{ if in $currentPage .URL }} active {{ end }}' href="{{ .URL | absURL }}">
+          <a class='nav-link {{ if in $currentPage .URL }} active {{ end }}' href="{{ .URL | relURL }}">
             {{ .Name }}
           </a>
         </li>
