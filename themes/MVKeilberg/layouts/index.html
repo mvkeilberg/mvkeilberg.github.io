@@ -29,6 +29,25 @@
         </div>
     </div>
 
+    <!-- Vereinsheim Section -->
+    <div class="row mt-5 align-items-center">
+        <!-- Vereinsheim Image (Left on large screens, above text on small screens) -->
+        <div class="col-lg-6 text-center order-1 order-lg-1">
+            {{- partial "responsive_image.html" (dict
+            "image" .Params.vereinsheim.image
+            "title" "Vereinsheim des Musikverein Keilberg"
+            "class" "rounded-3 img-fluid shadow-sm"
+            "widths" (dict "lg" 50)
+            ) -}}
+        </div>
+
+        <!-- Vereinsheim Text (Right on large screens, below image on small screens) -->
+        <div class="col-lg-6 order-2 order-lg-2 mt-4 mt-lg-0">
+            <h2 class="text-secondary">{{ .Params.vereinsheim.title }}</h2>
+            <p class="text-muted">{{ .Params.vereinsheim.text | markdownify }}</p>
+        </div>
+    </div>
+
     <div class="row mt-2 g-4">
         <div class="col-md-4">
             {{ with .Site.GetPage "section" "aktuelles" }}
