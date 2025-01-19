@@ -1,6 +1,6 @@
 ################################# Default configuration ###################
 baseURL = "https://www.mvkeilberg.de"
-title = "Musikverein Keilberg"
+title = "Musikverein Keilberg e.V."
 theme = "MVKeilberg"
 # disable language
 defaultContentLanguage = "de"

@@ -20,4 +20,3 @@ vorstand:
     kontakt: "Mühlhof 6  \n 63877 Sailauf"
     mobil: "+49 163 2908 811"
 ---
----
