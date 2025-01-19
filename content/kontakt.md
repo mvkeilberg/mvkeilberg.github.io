@@ -8,7 +8,7 @@ preview_text: "Lust auf Musik? Kontaktieren Sie uns!"
 image: "/images/index/Gruppenfoto.png"
 address_1: "Im Wiesengrund 16"
 address_2: "63856 Bessenbach"
-email: "info [at] mvkeilberg.de"
+email: "post [at] mvkeilberg.de"
 homepage: "https://mvkeilberg.de"
 vorstand:
   - title: "Erster Vorstand"
