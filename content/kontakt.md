@@ -26,6 +26,6 @@ vorstand:
     email: "vorstand [at] mvkeilberg.de"
   - title: "Zweiter Vorstand"
     name: "Jochen Haun"
-    kontakt: "Steinbachweg 17  \n 63856 Bessenbach"
+    kontakt: "63856 Bessenbach"
     mobil: "+49 171 1241 212"
 ---
