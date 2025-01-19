@@ -3,7 +3,7 @@
 <div class="container" id="about">
     <div class="row text-center">
         <div class="col-lg-10 mx-auto">
-            <h1 class="display-3 fw-bold text-primary">Willkommen beim Musikverein Keilberg</h1>
+            <h1 class="fw-bold text-primary">Willkommen beim Musikverein Keilberg</h1>
             <p class="lead text-muted">Tradition, Leidenschaft und Musik – gemeinsam erleben!</p>
         </div>
     </div>
@@ -15,13 +15,13 @@
             "image" "/images/index/Gruppenfoto.png"
             "title" "Musikverein Keilberg Orchester"
             "class" "rounded img-fluid shadow-sm"
-            "widths" (dict "md" 50)
+            "widths" (dict "lg" 50)
             ) -}}
         </div>
 
         <!-- "Über uns" text: Moves below image on small screens -->
         <div class="col-lg-6 order-2 order-lg-1">
-            <h3 class=" display-3 text-secondary fs-4">Über uns</h3> <!-- Adjusted size -->
+            <h2 class="text-secondary">Über uns</h2> <!-- Adjusted size -->
             <p class="text-muted">
                 Der Musikverein Keilberg ist eine engagierte Gemeinschaft von Musikerinnen und Musikern, die sich der
                 Förderung und Erhaltung der Blasmusik widmet.
@@ -34,31 +34,21 @@
 
     <div class="row mt-2 g-4">
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body text-center">
-                    <h3 class="fw-semibold text-primary">Aktuelles</h3>
-                    <p class="text-muted">Erfahren Sie mehr über die neuesten Ereignisse und Highlights des Vereins.</p>
-                    <a href="/aktuelles" class="btn btn-primary">Mehr erfahren</a>
-                </div>
-            </div>
+            {{ with .Site.GetPage "section" "aktuelles" }}
+            {{ partial "index_preview_card.html" . }}
+            {{ end }}
         </div>
         <div class="col-md-4">
             <div class="card border-0 shadow-sm">
-                <div class="card-body text-center">
-                    <h3 class="fw-semibold text-primary">Veranstaltungen</h3>
-                    <p class="text-muted">Kommen Sie vorbei und erleben Sie unsere musikalischen Highlights live.</p>
-                    <a href="/veranstaltungen" class="btn btn-primary">Termine ansehen</a>
-                </div>
+                {{ with .Site.GetPage "section" "veranstaltungen" }}
+                {{ partial "index_preview_card.html" . }}
+                {{ end }}
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center">
-                    <h3 class="fw-semibold text-primary">Kontakt</h3>
-                    <p class="text-muted">Lust auf Musik? Kontaktieren Sie uns!</p>
-                    <a href="/kontakt" class="btn btn-primary">Jetzt Kontaktieren</a>
-                </div>
-            </div>
+            {{ with .Site.GetPage "page" "kontakt" }}
+            {{ partial "index_preview_card.html" . }}
+            {{ end }}
         </div>
     </div>
 </div>

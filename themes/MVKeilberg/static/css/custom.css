@@ -22,49 +22,12 @@ h6,
   /* Deep Blue from logo */
 }
 
-h1,
-.h1,
-.display-1 {
-  font-size: 3.5rem;
-}
-
-h2,
-.h2,
-.display-2 {
-  font-size: 3rem;
-}
-
-h3,
-.h3,
-.display-3 {
-  font-size: 2rem;
-}
-
-h4,
-.h4,
-.display-4 {
-  font-size: 1.7rem;
-}
-
-h5,
-.h5,
-.display-5 {
-  font-size: 1.75rem;
-}
-
-h6,
-.h6,
-.display-6 {
-  font-size: 1.5rem;
-}
-
 html,
 body,
 .tooltip,
 .popover {
   font-family: "Smooch Sans", sans-serif;
   font-weight: 300;
-  font-size: 1.2rem;
   /* Increased base font size */
   color: #333;
   /* Dark Gray for readability */
@@ -97,7 +60,6 @@ textarea {
 .btn-primary {
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
-  font-size: 1.2rem;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   color: #fff;
@@ -131,54 +93,6 @@ a:hover {
   color: #16458c;
 }
 
-/* Global button styling */
-.btn,
-.btn-primary,
-.btn-outline-primary {
-  font-size: 1rem;
-  /* Reduced from 1.2rem */
-  padding: 0.5rem 1rem;
-  /* Smaller padding */
-  border-radius: 0.35rem;
-  /* Slightly rounded corners */
-  transition: all 0.2s ease-in-out;
-  text-align: center;
-}
-
-/* Solid Primary Button */
-.btn-primary {
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background-color: #16458c;
-  border-color: #16458c;
-  color: #fff;
-}
-
-/* Outline Primary Button */
-.btn-outline-primary {
-  border-color: #2058af;
-  color: #2058af;
-  background-color: transparent;
-}
-
-.btn-outline-primary:hover {
-  color: #fff;
-  background-color: #2058af;
-  border-color: #2058af;
-}
-
-.card {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
 
 .card-body {
   background-color: #fff;
