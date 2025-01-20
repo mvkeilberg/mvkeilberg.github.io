@@ -29,9 +29,56 @@
     {{ $.Site.Params.title }}
     {{ end }}
   </title>
-  {{ if .Title }}
-  <meta name="description" content="{{ .Title }}">
+  <!-- SEO -->
+  <!-- Meta Description (Primary for SEO) -->
+  {{ if .Params.description }}
+  <meta name="description" content="{{ .Params.description }}">
+  {{ else }}
+  <meta name="description" content="{{ $.Site.Params.description }}">
   {{ end }}
+
+  <!-- Canonical URL (Prevents Duplicate Content Issues) -->
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <!-- Open Graph (OG) Meta Tags (Facebook, LinkedIn, WhatsApp, etc.) -->
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Params.description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ $.Site.Params.title }}">
+  <meta property="og:type" content="website">
+  {{ if .Params.image }}
+  <meta property="og:image" content="{{ .Params.image }}">
+  {{ else }}
+  <meta property="og:image" content="{{ $.Site.Params.logo }}">
+  {{ end }}
+
+  <!-- Structured Data (JSON-LD for Google Rich Snippets) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "{{ .Title }}",
+      "description": "{{ .Params.description }}",
+      "url": "{{ .Permalink }}",
+      "publisher": {
+        "@type": "Organization",
+        "name": "{{ $.Site.Params.title }}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ $.Site.Params.logo }}"
+        }
+      }
+    }
+    </script>
+
+  <!-- Robots Meta Tag (Controls Indexing and Following of Links) -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Viewport for Mobile Optimization -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
 </head>
 
 <body id="body" class="d-flex flex-column h-100 bg-light">
