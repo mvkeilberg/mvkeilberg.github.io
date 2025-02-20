@@ -15,8 +15,8 @@
                     {{if $odd}}
                     <div class="col-lg-12 pt-3">
                         {{ partial "contentCard.html" (dict "Context" . "Title" .Params.Title "Subtitle"
-                        .Params.Subtitle "Content" .Content "Images" .Params.Resources.Images "widths" (dict "md" 50
-                        "sm" 85 )) }} </div>
+                        .Params.Subtitle "Content" .Content "Images" .Params.Resources.Images "widths"
+                        (dict "md" 50 "sm" 85 )) }} </div>
                     {{ end }}
                     {{$odd = not $odd}}
                     {{ end }}
