@@ -29,15 +29,15 @@ name = "Kontakt"
 url = "/kontakt"
 weight = 7
 
-[[menu.main]]
-name = "Sponsoren"
-url = "/sponsoren"
-weight = 17
-
 
 [[menu.main]]
 name = "Impressum"
 url = "/imprint"
+weight = 11
+
+[[menu.main]]
+name = "Datenschutz"
+url = "/dsgvo"
 weight = 11
 
 # [[menu.main]]
