@@ -3,7 +3,7 @@ title: "Neujahrsspielen an Silvester"
 layout: "silvester"
 description: "Der Musikverein Keilberg wünscht ein frohes neues Jahr und spielt an festen Stationen im Ort. Hier finden Sie alle Touren, Zeiten und den Live-Standort der Gruppen."
 href: "/silvester"
-location_api: http://localhost:8080/update
+location_api: https://statutory-marks-societies-identification.trycloudflare.com/update
 ---
 
 ## Tourenübersicht 2025
