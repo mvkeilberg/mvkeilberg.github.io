@@ -2,14 +2,21 @@
 
 <style>
     .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         background: #fff;
         border-radius: 12px;
-        overflow: hidden;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         margin: 1rem 0;
     }
 
-    /* Mehr horizontaler Abstand */
+    /* Wichtig: Tabelle darf breiter als der Container werden */
+    .table-responsive>table {
+        width: max-content;
+        min-width: 100%;
+    }
+
+    /* Mehr Abstand */
     .table td,
     .table th {
         padding-left: 16px;
