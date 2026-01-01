@@ -1,36 +1,19 @@
 {{ define "content" }}
 
 <style>
-    /* wirkt auf alle markdown-tabellen */
-    table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
+    .table-responsive {
         background: #fff;
         border-radius: 12px;
         overflow: hidden;
-    }
-
-    th,
-    td {
-        padding: 10px 16px;
-        /* mehr horizontaler Abstand */
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        vertical-align: middle;
-    }
-
-    thead th {
-        background: rgba(0, 0, 0, 0.02);
-        font-weight: 600;
-    }
-
-    tbody tr:last-child td {
-        border-bottom: 0;
-    }
-
-    /* optional: leichter Schatten wie eure Cards */
-    table {
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        margin: 1rem 0;
+    }
+
+    /* Mehr horizontaler Abstand */
+    .table td,
+    .table th {
+        padding-left: 16px;
+        padding-right: 16px;
     }
 </style>
 
@@ -267,13 +250,30 @@
 
 <script>
     (function () {
-        const tables = document.querySelectorAll("main table, .container table, article table");
-        for (const t of tables) {
-            // Falls ihr Bootstrap global habt, kannst du zusätzliche Klassen setzen
-            t.classList.add("table-like");
+        const tables = document.querySelectorAll(".container table, main table, article table");
 
-            // Falls Hugo manchmal <table> ohne <thead> rendert, lassen wir es einfach
-            // Keine DOM-Umbauten nötig, nur Styling
+        for (const table of tables) {
+            // Bootstrap Klassen auf die Tabelle
+            table.classList.add("table", "table-hover", "align-middle");
+
+            // Optional: kompakter
+            table.classList.add("table-sm");
+
+            // Optional: damit es auf Mobil nicht umbricht, sondern scrollt
+            // (Bootstrap table-responsive scrollt zwar, aber nowrap macht es ruhiger)
+            for (const cell of table.querySelectorAll("th, td")) {
+                cell.classList.add("text-nowrap");
+            }
+
+            // In table-responsive wrappen für horizontales Scrollen
+            const parent = table.parentElement;
+            if (parent && parent.classList.contains("table-responsive")) continue;
+
+            const wrapper = document.createElement("div");
+            wrapper.className = "table-responsive";
+
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
         }
     })();
 </script>
