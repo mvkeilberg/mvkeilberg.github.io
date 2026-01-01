@@ -10,6 +10,13 @@
         margin: 1rem 0;
     }
 
+    .table thead th {
+        background-color: #f1f3f5;
+        /* Bootstrap primary */
+        font-weight: 600;
+        border-bottom: 0;
+    }
+
     /* Wichtig: Tabelle darf breiter als der Container werden */
     .table-responsive>table {
         width: max-content;
@@ -48,10 +55,11 @@
         </div>
     </div>
 
-    <div class="container pt-5">
-        {{- .Content | safeHTML -}}
+    <div class="row pt-5">
+        <div class="col-12">
+            {{- .Content | safeHTML -}}
+        </div>
     </div>
-</div>
 </div>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
