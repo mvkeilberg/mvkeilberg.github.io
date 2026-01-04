@@ -12,22 +12,29 @@
 
     .table thead th {
         background-color: #f1f3f5;
-        /* Bootstrap primary */
         font-weight: 600;
         border-bottom: 0;
     }
 
-    /* Wichtig: Tabelle darf breiter als der Container werden */
     .table-responsive>table {
         width: max-content;
         min-width: 100%;
     }
 
-    /* Mehr Abstand */
     .table td,
     .table th {
         padding-left: 16px;
         padding-right: 16px;
+    }
+
+    .group-item:hover {
+        background: rgba(13, 110, 253, 0.06);
+        border-radius: 8px;
+    }
+
+    .group-item:focus {
+        outline: 2px solid rgba(13, 110, 253, 0.35);
+        border-radius: 8px;
     }
 </style>
 
@@ -82,7 +89,6 @@
         attribution: '&copy; OpenStreetMap-Mitwirkende'
     }).addTo(map);
 
-    // groupName -> Leaflet marker
     const markers = new Map();
 
     function escapeHtml(str) {
@@ -97,17 +103,19 @@
     function fmtTime(tsSeconds) {
         try {
             const d = new Date(tsSeconds * 1000);
-            return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            return d.toLocaleTimeString("de-DE", {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false
+            });
         } catch {
             return "";
         }
     }
 
-    // Farbpalette (Icons existieren im pointhi/leaflet-color-markers Repo)
     const COLOR_ORDER = ["red", "blue", "green", "orange", "violet", "yellow", "grey", "black"];
     const ICON_BASE = "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/";
 
-    // Cache: groupName -> Icon
     const iconCache = new Map();
 
     function hashStringToInt(s) {
@@ -153,11 +161,15 @@
         el.innerHTML = names.map(name => {
             const g = groupsObj[name] || {};
             const t = g.ts ? fmtTime(g.ts) : "";
-            const user = g.user ? `, ${g.user}` : "";
+            const user = g.user ? `,${g.user}` : "";
             const color = colorForGroup(name);
 
             return `
-                <div class="d-flex justify-content-between align-items-baseline py-1">
+                <div class="d-flex justify-content-between align-items-baseline py-1 group-item"
+                     role="button"
+                     tabindex="0"
+                     data-group="${escapeHtml(name)}"
+                     style="cursor:pointer;">
                     <span class="d-flex align-items-center gap-2">
                         <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};"></span>
                         <span>
@@ -171,19 +183,63 @@
         }).join("");
     }
 
-    // Einmalig fitBounds, sobald mindestens 2 Gruppen aktiv sind
-    let hasAutoFit = false;
+    const FOCUS_ZOOM = 17;
 
-    function autoFitIfNeeded(groupLatLngs) {
-        if (groupLatLngs.length < 2) {
-            hasAutoFit = false;
+    function focusGroupByName(name) {
+        const m = markers.get(name);
+        if (!m) return;
+
+        const ll = m.getLatLng();
+        map.flyTo(ll, Math.max(map.getZoom(), FOCUS_ZOOM), { duration: 0.6 });
+        m.openPopup();
+    }
+
+    document.getElementById("groupList").addEventListener("click", (e) => {
+        const item = e.target.closest(".group-item");
+        if (!item) return;
+        const name = item.getAttribute("data-group");
+        if (!name) return;
+        focusGroupByName(name);
+    });
+
+    document.getElementById("groupList").addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        const item = e.target.closest(".group-item");
+        if (!item) return;
+        e.preventDefault();
+        const name = item.getAttribute("data-group");
+        if (!name) return;
+        focusGroupByName(name);
+    });
+
+    let lastGroupCount = 0;
+    let hasSetInitialView = false;
+
+    function setInitialOrAutoFit(groupLatLngs) {
+        const count = groupLatLngs.length;
+
+        if (count === 0) {
+            map.setView(CLUBHOUSE, CLUBHOUSE_ZOOM);
+            hasSetInitialView = true;
+            lastGroupCount = 0;
             return;
         }
-        if (hasAutoFit) return;
 
-        const bounds = L.latLngBounds(groupLatLngs);
-        map.fitBounds(bounds.pad(0.25));
-        hasAutoFit = true;
+        if (count === 1) {
+            const bounds = L.latLngBounds(groupLatLngs);
+            map.fitBounds(bounds.pad(0.6));
+            hasSetInitialView = true;
+            lastGroupCount = 1;
+            return;
+        }
+
+        if (count !== lastGroupCount || !hasSetInitialView) {
+            const bounds = L.latLngBounds(groupLatLngs);
+            map.fitBounds(bounds.pad(0.25));
+            hasSetInitialView = true;
+        }
+
+        lastGroupCount = count;
     }
 
     async function fetchAndRender() {
@@ -196,7 +252,7 @@
                     map.removeLayer(m);
                     markers.delete(name);
                 }
-                hasAutoFit = false;
+                setInitialOrAutoFit([]);
                 return;
             }
 
@@ -252,7 +308,7 @@
                 }
             }
 
-            autoFitIfNeeded(latlngs);
+            setInitialOrAutoFit(latlngs);
 
         } catch (e) {
             console.log("fetchAndRender error:", e);
@@ -268,19 +324,13 @@
         const tables = document.querySelectorAll(".container table, main table, article table");
 
         for (const table of tables) {
-            // Bootstrap Klassen auf die Tabelle
             table.classList.add("table", "table-hover", "align-middle");
-
-            // Optional: kompakter
             table.classList.add("table-sm");
 
-            // Optional: damit es auf Mobil nicht umbricht, sondern scrollt
-            // (Bootstrap table-responsive scrollt zwar, aber nowrap macht es ruhiger)
             for (const cell of table.querySelectorAll("th, td")) {
                 cell.classList.add("text-nowrap");
             }
 
-            // In table-responsive wrappen für horizontales Scrollen
             const parent = table.parentElement;
             if (parent && parent.classList.contains("table-responsive")) continue;
 
